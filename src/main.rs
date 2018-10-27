@@ -1,6 +1,8 @@
 use std::io;
 use std::time::{Instant};
 use rand::{thread_rng, Rng};
+use std::fs::File;
+use std::io::prelude::*;
 
 fn main() {
     let now = Instant::now();
@@ -24,5 +26,10 @@ fn main() {
     lista.sort();
     // println!("lista ordenada: {:?}", lista);
     println!("tempo total: {}s", now.elapsed().as_secs());
-
+    // grava arquivo
+    println!("gravando arquivo de resultado");
+    let mut f = File::create("resultado.txt").unwrap();
+     for i in &lista{
+        write!(f, "{:?}\r\n", *i).expect("Unable to write data");
+    }
 }
