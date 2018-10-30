@@ -23,22 +23,18 @@ func main() {
 	}
 	total := math.Pow(10, potencia)
 
-	fmt.Printf("potencia %.2f total: %.2f \n", potencia, total)
+	fmt.Printf("Ordenador de listas - JAVASCRIPT\n")
+	fmt.Printf("ordena lista com tamanho %.2f (10^%.2f)\n", potencia, total)
 	totalInt := int(total)
 
-	// lista := make([]int, totalInt)
-	// for i := range lista {
-	// 	lista[i] = i
-	// 	fmt.Printf("%d \n", i)
-	// }
 	list := rand.Perm(totalInt)
-	for i, _ := range list {
+	fmt.Printf("embaralhando...\n")
+	for i := range list {
 		list[i]++
 	}
-	// fmt.Printf("lista embaralhada %d\n", list)
+	fmt.Printf("ordenando...\n")
 	sort.Ints(list)
-	// fmt.Printf("lista ordenada: %d\n", list)
-	tempo_execucao := time.Since(inicio)
-	fmt.Printf("tempo total %s \n", tempo_execucao)
+	tempoExecucao := time.Since(inicio)
+	fmt.Printf("tempo total %s \n", tempoExecucao)
 
 }

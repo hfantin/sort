@@ -10,9 +10,12 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let gravar = args.len() > 1 && args[1] == "gravar";
 
-    let now = Instant::now();
+    
     println!("Ordenador de listas - RUST");
     let potencia = le_console();
+    
+    let now = Instant::now();
+
     let mut lista = gerar_lista(10, potencia);
 
     println!("ordena lista com tamanho {} (10^{})", lista.len(), potencia);
