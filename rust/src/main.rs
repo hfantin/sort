@@ -1,3 +1,5 @@
+extern crate rand;
+
 use std::io;
 use std::env;
 use std::time::{Instant};
@@ -30,7 +32,7 @@ fn main() {
 
     let tempo_total = now.elapsed();
 
-    println!("tempo total: {}s ou {} ns", tempo_total.as_secs(), decimal_mark(tempo_total.subsec_nanos().to_string()));
+    println!("tempo total: {}s e {} ns", tempo_total.as_secs(), decimal_mark(tempo_total.subsec_nanos().to_string()));
 
     grava_arquivo(lista.clone(), "output.txt", gravar);
 }
