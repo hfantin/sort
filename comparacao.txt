@@ -1,14 +1,14 @@
 10 ^ 7
-go      7.181s
-rust    2.481 s
-java    26.991 s
+go      4.875s
+rust    1.706 s
+java    1.720 s
 js      29.662 s 
 python  18.609 s
 
 10 ^8 
-rust     49s ou 894.372.346 ns
-go       3m20.856138507s
-java     
+rust     19.443
+go       56.588s
+java     17.718 s
 js       não consegue
 python   não consegue
 
