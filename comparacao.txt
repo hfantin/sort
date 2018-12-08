@@ -5,6 +5,7 @@ java    1.720 s
 js      29.662 s 
 python  18.609 s
 
+
 10 ^8 
 rust     19.443
 go       56.588s

@@ -15,7 +15,7 @@ class Sort {
         val lista = listOf(0..total).flatMap { it }.shuffled()
         println("ordenando lista...")
         val ordenada = lista.sorted()
-        println("tempo total=" + nf.format(System.nanoTime() - inicio) + " ns")
+        println("tempo total=${nf.format(System.nanoTime() - inicio)} ns")
         gravarArquivo(ordenada)
     }
 
@@ -28,4 +28,3 @@ fun main(args: Array<String>) {
     val potencia = if (args.size == 0) 3.0 else args[0].toDouble()
     Sort().execute(potencia)
 }
-

@@ -19,13 +19,12 @@ fn main() {
     let now = Instant::now();
 
     let mut lista = gerar_lista(10, potencia);
-
     println!("ordena lista com tamanho {} (10^{})", lista.len(), potencia);
 
     println!("embaralhando...");
     thread_rng().shuffle(&mut lista);
 
-    grava_arquivo(lista.clone(), "input.txt", gravar);
+    grava_arquivo(&mut lista, "input.txt", gravar);
 
     println!("ordenando...");
     lista.sort();
@@ -34,7 +33,7 @@ fn main() {
 
     println!("tempo total: {}s e {} ns", tempo_total.as_secs(), decimal_mark(tempo_total.subsec_nanos().to_string()));
 
-    grava_arquivo(lista.clone(), "output.txt", gravar);
+    grava_arquivo(&mut lista, "output.txt", gravar);
 }
 
 fn decimal_mark(s: String) -> String {
@@ -52,7 +51,7 @@ fn decimal_mark(s: String) -> String {
 
 fn gerar_lista(base: u32, potencia: u32) -> Vec<u32> {
     let total = base.pow(potencia);
-    return (0..total).collect();
+    (0..total).collect()
 }
 
 fn le_console() -> u32 {
@@ -66,11 +65,11 @@ fn le_console() -> u32 {
         .parse::<u32> ().unwrap();
 }
 
-fn grava_arquivo(lista: Vec<u32>, arquivo: &str, gravar: bool) {
+fn grava_arquivo(lista: &mut Vec<u32>, arquivo: &str, gravar: bool) {
     if gravar {
         println!("gravando arquivo {}", arquivo);
         let mut f = File::create(arquivo).unwrap();
-        for i in &lista {
+        for i in lista {
             write!(f, "{:?}\r\n", * i).expect("Unable to write data");
         }
     }
